@@ -10,10 +10,25 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var logInButtom: UIButton!
+   
+    @IBOutlet weak var name: UITextField!
+    
+    @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var status: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        logInButtom.backgroundColor = .clear
+        logInButtom.layer.cornerRadius = 5
+        logInButtom.layer.borderWidth = 1
+        logInButtom.layer.borderColor = UIColor.black.cgColor
+        
+    
     }
 
     override func didReceiveMemoryWarning() {
