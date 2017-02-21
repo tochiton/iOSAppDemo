@@ -24,6 +24,7 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var login_button: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +34,7 @@ class FirstViewController: UIViewController {
         //logInButtom.layer.borderWidth = 1
         login_button.layer.borderColor = UIColor.white.cgColor
         
-        //username_input.text = "spencer@row52.com"
-        //password_input.text = "password1"
+        
         //login_now(username: "tochiton", password: "password")
         
         let preferences = UserDefaults.standard
@@ -45,8 +45,6 @@ class FirstViewController: UIViewController {
         else{
            LoginToDo()
         }
-        
-        
     }
 
     @IBAction func DoLogin(_ sender: Any) {
@@ -91,6 +89,21 @@ class FirstViewController: UIViewController {
             (data, response, error) in
             
             //print("Got response\(response)")
+            
+            let responseData = String(data: data!, encoding: String.Encoding.utf8)
+            print(responseData!)
+            if responseData != nil{
+                self.login_session = responseData!
+                let preferences = UserDefaults.standard
+                preferences.set(responseData!, forKey: "session")
+                DispatchQueue.main.async(execute: self.LoginDone)
+            }
+        
+            let httpResponse = response as! HTTPURLResponse
+           // print(httpResponse.statusCode)
+            
+        
+            
             guard let _:Data = data, let _:URLResponse = response, error == nil else{
                 return
             }
@@ -99,7 +112,7 @@ class FirstViewController: UIViewController {
             do{
                 
                 json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print(json)
+                print(json!)
             }
             catch{
                 return
@@ -108,8 +121,7 @@ class FirstViewController: UIViewController {
                 return
             }
             if let data_block = server_response["Set-Cookie"] as? NSDictionary{
-                print("the cookie is: ")
-                print(data_block)
+               
                 if let session_data = data_block["session"] as? String{
                     self.login_session = session_data
                     
@@ -153,21 +165,15 @@ class FirstViewController: UIViewController {
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
+        request.setValue("Spider " + login_session, forHTTPHeaderField: "Authorization")
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
-        var paramString = ""
-        
-        
-        for (key, value) in post_data
-        {
-            paramString = paramString + (key as! String) + "=" + (value as! String) + "&"
-        }
-        
-        request.httpBody = paramString.data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
+            print("firing this now")
+            print(response)
             
             guard let _:Data = data, let _:URLResponse = response  , error == nil else {
                 
