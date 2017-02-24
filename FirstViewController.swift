@@ -50,6 +50,7 @@ class FirstViewController: UIViewController {
     @IBAction func DoLogin(_ sender: Any) {
         
         if(login_button.titleLabel?.text == "Logout"){
+        
             let preferences = UserDefaults.standard
             preferences.removeObject(forKey: "session")
             LoginToDo()
@@ -57,8 +58,7 @@ class FirstViewController: UIViewController {
         else{
             login_now(username: username_input.text!, password: password_input.text!)
         }
-        
-        
+    
     }
     
     func login_now(username: String, password: String){
@@ -91,18 +91,25 @@ class FirstViewController: UIViewController {
             //print("Got response\(response)")
             
             let responseData = String(data: data!, encoding: String.Encoding.utf8)
-            print(responseData!)
-            if responseData != nil{
+            //print(responseData!)
+            
+           let httpResponse = response as! HTTPURLResponse
+            
+            if responseData != nil && httpResponse.statusCode == 200{
                 self.login_session = responseData!
                 let preferences = UserDefaults.standard
                 preferences.set(responseData!, forKey: "session")
+                
+                if let mySession = preferences.value(forKey: "session"){
+                    //print(mySession)
+                    print("Login_Now: Writing the following token into UserDefault")
+                }
+                
                 DispatchQueue.main.async(execute: self.LoginDone)
             }
-        
-            let httpResponse = response as! HTTPURLResponse
-           // print(httpResponse.statusCode)
-            
-        
+            else{
+                DispatchQueue.main.async(execute: self.LoginToDo)
+            }
             
             guard let _:Data = data, let _:URLResponse = response, error == nil else{
                 return
@@ -112,7 +119,7 @@ class FirstViewController: UIViewController {
             do{
                 
                 json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print(json!)
+                //print(json!)
             }
             catch{
                 return
@@ -132,7 +139,8 @@ class FirstViewController: UIViewController {
             }
         })
         task.resume()
-    
+       // print("Going to check session after after LogIn")
+        //check_session()
     }
     
     func LoginDone(){
@@ -157,30 +165,49 @@ class FirstViewController: UIViewController {
     {
         let post_data: NSDictionary = NSMutableDictionary()
         
-        
         post_data.setValue(login_session, forKey: "session")
+        
+        let preferences = UserDefaults.standard
+        var myLocalSession: String = ""
+        if let mySession = preferences.value(forKey: "session"){
+            myLocalSession = mySession as! String
+            print("Firt flag -- check session --get session UserDefault")
+        }
         
         let url:URL = URL(string: checksession_url)!
         let session = URLSession.shared
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("Spider " + login_session, forHTTPHeaderField: "Authorization")
-        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
+        myLocalSession = String(myLocalSession.characters.dropLast())
+        myLocalSession = String(myLocalSession.characters.dropFirst())
+        
+        request.setValue("Spider " + myLocalSession, forHTTPHeaderField: "Authorization")
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
-            print("firing this now")
-            print(response)
+            print("Second flag -- check session -- making http request")
+            
+            let httpResponse = response as! HTTPURLResponse
+            
+            if httpResponse.statusCode == 200{
+                print("Authenticated -- OK")
+                //fire here the next screen
+                DispatchQueue.main.async(execute: self.LoginDone)
+            }
+            else{
+                print("Not able to authenticate from check_session")
+                print(httpResponse.statusCode)
+                DispatchQueue.main.async(execute: self.LoginToDo)
+            }
             
             guard let _:Data = data, let _:URLResponse = response  , error == nil else {
                 
                 return
             }
-            
-            
             let json: Any?
             
             do
@@ -203,15 +230,12 @@ class FirstViewController: UIViewController {
                 {
                     DispatchQueue.main.async(execute: self.LoginDone)
                     
-                    
                 }
                 else
                 {
                     DispatchQueue.main.async(execute: self.LoginToDo)
                 }
             }
-            
-            
             
         })
         
