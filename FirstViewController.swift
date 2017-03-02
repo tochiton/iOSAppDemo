@@ -77,6 +77,12 @@ class FirstViewController: UIViewController {
         request.httpMethod = "POST"
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
+        /*
+            add content type
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+        */
+        
         var paramString = ""
         
         for(key, value) in post_data{
