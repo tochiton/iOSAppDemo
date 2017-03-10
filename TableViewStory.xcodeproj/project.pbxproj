@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B739DDE1E71C788009C0781 /* RequestInfoBarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B739DDD1E71C788009C0781 /* RequestInfoBarCodeViewController.swift */; };
 		8B77DACD1E4CF48B0053E8DB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77DACC1E4CF48B0053E8DB /* FirstViewController.swift */; };
 		8B7B8D6C1E4A3CA90044B9AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B8D6B1E4A3CA90044B9AC /* AppDelegate.swift */; };
 		8B7B8D711E4A3CA90044B9AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7B8D6F1E4A3CA90044B9AC /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B739DDD1E71C788009C0781 /* RequestInfoBarCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestInfoBarCodeViewController.swift; sourceTree = "<group>"; };
 		8B77DACC1E4CF48B0053E8DB /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
 		8B7B8D681E4A3CA90044B9AC /* TableViewStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7B8D6B1E4A3CA90044B9AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				8B77DACC1E4CF48B0053E8DB /* FirstViewController.swift */,
 				8B7B8D6B1E4A3CA90044B9AC /* AppDelegate.swift */,
 				8B7B8D6F1E4A3CA90044B9AC /* Main.storyboard */,
+				8B739DDD1E71C788009C0781 /* RequestInfoBarCodeViewController.swift */,
 				8B7B8D7D1E4A3F4B0044B9AC /* AttractionTableTableViewController.swift */,
 				8B9295541E68D3CB004BC132 /* QRScannerController.swift */,
 				8B7B8D7F1E4A40510044B9AC /* AttractionTableViewCell.swift */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B7B8D6C1E4A3CA90044B9AC /* AppDelegate.swift in Sources */,
+				8B739DDE1E71C788009C0781 /* RequestInfoBarCodeViewController.swift in Sources */,
 				8B7B8D801E4A40510044B9AC /* AttractionTableViewCell.swift in Sources */,
 				8B9295551E68D3CB004BC132 /* QRScannerController.swift in Sources */,
 				8B7B8D7E1E4A3F4B0044B9AC /* AttractionTableTableViewController.swift in Sources */,

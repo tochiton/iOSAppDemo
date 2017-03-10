@@ -6,6 +6,12 @@
 //  Copyright © 2017 Developer. All rights reserved.
 //
 
+/*
+    Table View Controller 
+ 
+ */
+
+
 import UIKit
 
 class AttractionTableTableViewController: UITableViewController {

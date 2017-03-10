@@ -1,6 +1,6 @@
 //
 //  FirstViewController.swift
-//  TableViewStory
+//  LogIn Controller
 //
 //  Created by Developer on 2/9/17.
 //  Copyright © 2017 Developer. All rights reserved.
