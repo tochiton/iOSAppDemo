@@ -61,7 +61,7 @@ class RequestInfoBarCodeViewController: UIViewController {
                     self.modelDescription.text = modelFromUrl
                     
                     
-                    
+                    // make this part of the code asyncronouos to speed the process
                     if let largeImage = server_response["SmallImage"] as? String{
                         print(largeImage)
                         let imageUrl = URL(string: largeImage)
