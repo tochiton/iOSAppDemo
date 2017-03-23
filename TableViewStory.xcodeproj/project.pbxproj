@@ -15,6 +15,7 @@
 		8B7B8D761E4A3CA90044B9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7B8D741E4A3CA90044B9AC /* LaunchScreen.storyboard */; };
 		8B7B8D7E1E4A3F4B0044B9AC /* AttractionTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B8D7D1E4A3F4B0044B9AC /* AttractionTableTableViewController.swift */; };
 		8B7B8D801E4A40510044B9AC /* AttractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B8D7F1E4A40510044B9AC /* AttractionTableViewCell.swift */; };
+		8B89D1271E847E41007C3B4B /* CameraFileSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B89D1261E847E41007C3B4B /* CameraFileSystemViewController.swift */; };
 		8B9295551E68D3CB004BC132 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9295541E68D3CB004BC132 /* QRScannerController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		8B7B8D771E4A3CA90044B9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B7B8D7D1E4A3F4B0044B9AC /* AttractionTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionTableTableViewController.swift; sourceTree = "<group>"; };
 		8B7B8D7F1E4A40510044B9AC /* AttractionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionTableViewCell.swift; sourceTree = "<group>"; };
+		8B89D1261E847E41007C3B4B /* CameraFileSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFileSystemViewController.swift; sourceTree = "<group>"; };
 		8B9295541E68D3CB004BC132 /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRScannerController.swift; path = ../../QRCodeReader/QRCodeReader/QRScannerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				8B77DACC1E4CF48B0053E8DB /* FirstViewController.swift */,
 				8B7B8D6B1E4A3CA90044B9AC /* AppDelegate.swift */,
 				8B7B8D6F1E4A3CA90044B9AC /* Main.storyboard */,
+				8B89D1261E847E41007C3B4B /* CameraFileSystemViewController.swift */,
 				8B739DDD1E71C788009C0781 /* RequestInfoBarCodeViewController.swift */,
 				8B7B8D7D1E4A3F4B0044B9AC /* AttractionTableTableViewController.swift */,
 				8B9295541E68D3CB004BC132 /* QRScannerController.swift */,
@@ -153,6 +156,7 @@
 				8B739DDE1E71C788009C0781 /* RequestInfoBarCodeViewController.swift in Sources */,
 				8B7B8D801E4A40510044B9AC /* AttractionTableViewCell.swift in Sources */,
 				8B9295551E68D3CB004BC132 /* QRScannerController.swift in Sources */,
+				8B89D1271E847E41007C3B4B /* CameraFileSystemViewController.swift in Sources */,
 				8B7B8D7E1E4A3F4B0044B9AC /* AttractionTableTableViewController.swift in Sources */,
 				8B77DACD1E4CF48B0053E8DB /* FirstViewController.swift in Sources */,
 			);
