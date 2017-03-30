@@ -67,13 +67,25 @@ class RequestInfoBarCodeViewController: UIViewController {
                         
                         // making second call to download the image
                         
-                        let imageUrl = URL(string: largeImage)
-                        let imageData = try? Data(contentsOf: imageUrl!)
-                        if imageData != nil{
-                        self.imageView.image = UIImage(data: imageData!)
-                        }else{
-                            print("No image")
+                        // by adding the DispathQueue.main.async make the call asynchronous
+                        //******* Rewrite the whole function*********//
+                         let imageUrl = URL(string: largeImage)
+                        
+                        // pending using the helping function below
+                        //downloadImage(url: imageUrl)
+                        
+                  
+                        DispatchQueue.global().async {
+                            let imageData = try? Data(contentsOf: imageUrl!)
+                            if imageData != nil{
+                                DispatchQueue.main.async {
+                                self.imageView.image = UIImage(data: imageData!)
+                                }
+                            }else{
+                                print("No image")
+                            }
                         }
+                   
                     }
                     
                     
@@ -88,6 +100,26 @@ class RequestInfoBarCodeViewController: UIViewController {
         
     }
 
+    func getDataFromUrl(url: URL, completion: @escaping(_ data: Data?, _ reponse: URLResponse?, _ error: Error?) -> Void){
+        URLSession.shared.dataTask(with: url){
+            (data, response, error) in
+                completion(data, response, error)
+        }.resume()
+    }
+    
+    func downloadImage(url: URL){
+        print("Download started")
+        getDataFromUrl(url: url) {(data, response, error) in
+            guard let data = data, error == nil else { return }
+            print("Dowload finished")
+            DispatchQueue.main.async() {
+                () -> Void in
+                self.imageView.image = UIImage(data: data)
+            }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
