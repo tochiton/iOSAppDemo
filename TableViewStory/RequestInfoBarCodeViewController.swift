@@ -64,9 +64,16 @@ class RequestInfoBarCodeViewController: UIViewController {
                     // make this part of the code asyncronouos to speed the process
                     if let largeImage = server_response["SmallImage"] as? String{
                         print(largeImage)
+                        
+                        // making second call to download the image
+                        
                         let imageUrl = URL(string: largeImage)
                         let imageData = try? Data(contentsOf: imageUrl!)
+                        if imageData != nil{
                         self.imageView.image = UIImage(data: imageData!)
+                        }else{
+                            print("No image")
+                        }
                     }
                     
                     
