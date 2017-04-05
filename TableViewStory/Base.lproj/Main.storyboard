@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Log In-->
         <scene sceneID="prV-gh-8Pc">
             <objects>
                 <viewController id="pJP-jr-zID" customClass="FirstViewController" customModule="TableViewStory" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                         <color key="backgroundColor" red="0.15904405381944445" green="0.53877179490277782" blue="0.71466155186944447" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.65864484180000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="TVk-97-qyF"/>
+                    <tabBarItem key="tabBarItem" title="Log In" id="TVk-97-qyF"/>
                     <connections>
                         <outlet property="login_button" destination="LEK-hN-2Bq" id="7Yw-2U-Uzw"/>
                         <outlet property="password_input" destination="juU-7W-4Kq" id="FeM-Eb-jyE"/>
@@ -67,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="-796" y="-939.58020989505258"/>
         </scene>
-        <!--Help-->
+        <!--Home-->
         <scene sceneID="ls7-5R-fkX">
             <objects>
                 <viewController id="dXh-Ni-4Ag" customClass="RequestInfoBarCodeViewController" customModule="TableViewStory" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,7 +124,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Help" id="zxc-Im-MZz"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="zxc-Im-MZz"/>
                     <connections>
                         <outlet property="imageView" destination="w1j-EP-grX" id="WHC-FP-RM6"/>
                         <outlet property="make" destination="Hfn-GM-may" id="3xw-Nw-dqM"/>
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fu0-Ek-tuN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="715.59220389805103"/>
+            <point key="canvasLocation" x="-70" y="716"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="JaT-Gs-89Q">
@@ -170,8 +170,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Da-OI-7aB">
+                                <rect key="frame" x="67" y="156" width="240" height="177"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIK-Fk-iZm">
-                                <rect key="frame" x="88" y="231" width="199" height="21"/>
+                                <rect key="frame" x="78" y="374" width="199" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -181,12 +185,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="6Da-OI-7aB" id="2pz-7k-B2P"/>
                         <outlet property="myLabel" destination="lIK-Fk-iZm" id="0tW-qn-YkB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdl-vq-aK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919.20000000000005" y="639.13043478260875"/>
+            <point key="canvasLocation" x="845.60000000000002" y="715.59220389805103"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cuf-2x-2UB">
@@ -267,11 +272,11 @@
             </objects>
             <point key="canvasLocation" x="-702" y="-116"/>
         </scene>
-        <!--Item-->
+        <!--Scan-->
         <scene sceneID="t3O-Oc-CWg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Nv-aX-h5K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="72w-Mt-ZUY"/>
+                    <tabBarItem key="tabBarItem" title="Scan" id="72w-Mt-ZUY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="60O-WA-fJy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
